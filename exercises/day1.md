@@ -6,13 +6,13 @@ Apply what you've learned today by building a product display page that shows a 
 
 ## Requirements
 
-### 1. Project Setup
+### 1. Project Setup ✅
 
 - Initialize a new Vite project with React and TypeScript
 - Configure Tailwind CSS
 - Create the necessary directory structure (`components`, `types`, etc.)
 
-### 2. Types
+### 2. Types ✅
 
 - Create a `Product` interface in a `src/types/Product.ts` file with the following properties:
   - `id`: string
@@ -22,11 +22,11 @@ Apply what you've learned today by building a product display page that shows a 
   - `imageUrl`: string
   - `category`: string (optional)
 
-### 3. Components
+### 3. Components ✅
 
 Create the following components:
 
-#### ProductCard Component
+#### ProductCard Component  ✅
 
 - Create a `ProductCard.tsx` component that:
   - Accepts a `product` prop of type `Product`
@@ -34,7 +34,7 @@ Create the following components:
   - Uses Tailwind CSS for styling (cards should look professional)
   - Shows the price formatted to 2 decimal places
 
-#### ProductList Component
+#### ProductList Component✅
 
 - Create a `ProductList.tsx` component that:
   - Accepts an array of `products` as a prop
@@ -42,13 +42,13 @@ Create the following components:
   - Uses a grid layout with responsive columns (1 column on mobile, 2-4 columns on larger screens)
   - Handles the empty state (displays a message when no products exist)
 
-#### Header Component (Optional)
+#### Header Component (Optional) ✅
 
 - Create a simple `Header.tsx` component with:
   - The store name/logo
   - A placeholder for a cart icon (we'll implement this later)
 
-### 4. App Component
+### 4. App Component ✅
 
 - In your `App.tsx`:
   - Create mock product data (at least 6 products with different images)
@@ -56,28 +56,28 @@ Create the following components:
   - Render the Header and ProductList components
   - Properly pass your products state to the ProductList
 
-### 5. Styling
+### 5. Styling ✅
 
 - Use Tailwind CSS for styling
 - Your page should be responsive
 - Products should be displayed in a visually appealing way
 - Include transitions or hover effects for a better user experience
 
-## Optional Bonus Ideas
+## Optional Bonus Ideas 
 
 If you finish early or want an extra challenge, try one of these simpler bonus tasks:
 
-### 1. Add Hover Effects
+### 1. Add Hover Effects ✅
 
 - Add hover effects to the product cards (like scaling, shadow change, or color shift)
 - You can use Tailwind's transition utilities and group hover features
 
-### 2. Show/Hide Product Description
+### 2. Show/Hide Product Description ✅
 
 - Initially show just a truncated description
 - Add a "Read more" button that expands to show the full description
 
-### 3. Simple Category Display
+### 3. Simple Category Display ✅
 
 - Add a category badge or tag to each product card
 - Style it differently based on the category

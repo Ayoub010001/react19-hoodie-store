@@ -18,7 +18,8 @@ describe("ProductCard Component", () => {
   const mockOnAddToCart = vi.fn();
 
   it("renders the product information correctly", () => {
-    render(<ProductCard product={mockProduct} onAddToCart={mockOnAddToCart} />);
+    render(<ProductCard product={mockProduct} 
+      onAddToCart={mockOnAddToCart} />);
 
     // Check if product name is rendered
     expect(screen.getByText("Test Product")).toBeInTheDocument();

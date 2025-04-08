@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
-import ProductList from "../components/ProductList";
+import ProductList from "../components/ProductList.tsx";
 import { Product } from "../types/Product";
 
 describe("ProductList Component", () => {
