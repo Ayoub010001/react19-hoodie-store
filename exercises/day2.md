@@ -61,14 +61,14 @@ If you finish early or want an extra challenge, try one of these:
 - Add a small badge to the cart icon in the header showing the number of items
 - Style it as a small circle with a contrasting color
 
-### 3. Cart Item Quantity
+### 3. Cart Item Quantity ✅
 
 - Instead of preventing duplicates, update your cart state to handle quantities
 - Define a new type `CartItem` that extends `Product` with a `quantity` property
 - Increment the quantity when adding the same product multiple times
 - Update the cart count to show the total quantity, not just the number of unique items
 
-## Testing Your Implementation
+## Testing Your Implementation ✅
 
 - Test your implementation by:
   - Adding various products to your cart

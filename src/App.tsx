@@ -58,7 +58,6 @@ function App() {
   ];
 
   const [products, setProducts] = useState<Product[]>(mockProducts);
-
   const [cart, setCart] = useState<CartItem[]>([]);
   const [userFeedback, setUserFeedback] = useState<string | null>(null);
 
@@ -70,19 +69,30 @@ function App() {
       setTimeout(() => {
         setUserFeedback(null);
       }
-      , 1500);
+      , 2000);
     }else{
-      setUserFeedback(`Already in cart`);
+      setCart((prevCart:CartItem[])=>prevCart.map(item=>item.id===product.id?{...item,quantity:item.quantity+1}:item));
+      
+      cart.forEach(item => {
+        if (item.id === product.id) {
+          setUserFeedback(`Added ${item.quantity} X ${product.name} in cart`);
+        }
+      })
+    
       setTimeout(() => {
         setUserFeedback(null);
       }
-      , 1500);
+      , 2000);
     }
+  }
+
+  function countProductsInCart(cart: CartItem[]) {
+    return cart.reduce((total, item) => total + item.quantity, 0);
   }
 
   return (
     <main className="mx-auto container bg-gray-900 text-sky-50 min-h-screen">
-      <Header cartCount={cart.length}/>
+      <Header cartCount={countProductsInCart(cart)}/>
       <ProductList products={products} onAddToCart={handleAddToCart} cart={cart}/>
       {userFeedback && (<div className="fixed bottom-0 left-0 right-0 bg-sky-800/80 text-center p-2">
         <p className="text-sky-50">{userFeedback}</p>
