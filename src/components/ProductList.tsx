@@ -7,7 +7,6 @@ interface ProductListProps {
     cart: Product[]
 }
 
-
 function ProductList({products,onAddToCart,cart}: ProductListProps) {
     return (
         <div className="container mx-auto p-4" >

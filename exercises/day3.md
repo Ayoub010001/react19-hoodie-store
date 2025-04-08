@@ -67,7 +67,7 @@ Refactor your application to use the `useEffect` hook for data fetching. Impleme
 
 If you finish early or want an extra challenge, try one of these:
 
-### 1. Custom Hook
+### 1. Custom Hook ✅
 
 - Create a reusable `useFetch` hook that encapsulates the fetching logic:
 
@@ -85,18 +85,18 @@ If you finish early or want an extra challenge, try one of these:
 
 - Implement the hook in your component: `const { data: products, isLoading, error } = useFetch<Product[]>('/api/products');`
 
-### 2. Retry Mechanism
+### 2. Retry Mechanism ✅
 
 - Add a "Retry" button that appears when there's an error
 - Implement a function to retry the fetch operation when the button is clicked
 
-### 3. Prettier Loading/Error UI
+### 3. Prettier Loading/Error UI ✅
 
 - Create a more visually appealing loading spinner using CSS or a library
 - Style the error message with appropriate colors and icons
 - Add animations to smooth the transition between loading and content
 
-## Testing Your Implementation
+## Testing Your Implementation ✅
 
 - Test your implementation by:
   - Refreshing the page to see the loading state
