@@ -9,7 +9,6 @@ interface ProductProps {
 function ProductCard({product, onAddToCart,cart}:ProductProps) {
 
   const [showMore, setShowMore] = useState(false);
-  let isAnime = (product.category === "Anime");
 
   function reduceDescription(description: string, maxLength: number) {
     if (description.length > maxLength)
@@ -23,7 +22,7 @@ function ProductCard({product, onAddToCart,cart}:ProductProps) {
 
   return (
     <div className="relative rounded-lg bg-gray-800 hover:bg-sky-950 hover:scale-95 hover:shadow-2xl hover:shadow-blue-500/30  p-2 text-sky-50 max-w-[400px] m-auto cursor-pointer transition-all duration-300">
-        <p className={`text-sm absolute ${isAnime ? 'bg-sky-600/80 hover:bg-sky-600/95' : 'bg-green-400/50'} rounded px-4 py-2 right-2 m-2`}>{product.category}</p>
+        <p className={`text-sm absolute bg-sky-600/80 hover:bg-sky-600/95 rounded px-4 py-2 right-2 m-2`}>{product.category||"Coding"}</p>
         <img src={product.imageUrl} className="w-100 rounded" alt={product.name}></img>
         <h2 className="font-medium text-white text-2xl my-2">{product.name}</h2>
         <p className="text-gray-300">{showMore?product.description:reduceDescription(product.description,45)}</p>

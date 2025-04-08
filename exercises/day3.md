@@ -6,7 +6,7 @@ Refactor your application to use the `useEffect` hook for data fetching. Impleme
 
 ## Requirements
 
-### 1. Data Fetching with useEffect
+### 1. Data Fetching with useEffect ✅
 
 - Refactor your `App.tsx` (or `ProductsPage.tsx` if you created it) to fetch products using the `useEffect` hook:
   ```tsx
@@ -18,7 +18,7 @@ Refactor your application to use the `useEffect` hook for data fetching. Impleme
 - Call the API using the `fetch` API and handle the response
 - Use proper error handling with try/catch
 
-### 2. Loading State
+### 2. Loading State ✅
 
 - Add a loading state to your component:
   ```tsx
@@ -34,7 +34,7 @@ Refactor your application to use the `useEffect` hook for data fetching. Impleme
   ```
 - Only render the products when loading is complete
 
-### 3. Error Handling
+### 3. Error Handling ✅
 
 - Add an error state to your component:
   ```tsx
@@ -50,14 +50,14 @@ Refactor your application to use the `useEffect` hook for data fetching. Impleme
   ```
 - Make sure both the try and catch blocks set `isLoading` to `false` (use a finally block)
 
-### 4. Conditional Rendering
+### 4. Conditional Rendering ✅
 
 - Use conditional rendering to show different UI states:
   - Show a loading indicator when `isLoading` is true
   - Show an error message when `error` is not null
   - Show the product list when neither loading nor error
 
-### 5. Clean API Integration
+### 5. Clean API Integration ✅
 
 - Ensure your fetch URL matches your backend (e.g., `http://localhost:3001/products`)
 - Check that the response is OK (`response.ok`) before processing it
