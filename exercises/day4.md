@@ -6,7 +6,7 @@ Implement client-side routing to create separate views for your products and sho
 
 ## Requirements
 
-### 1. Setup Routing
+### 1. Setup Routing ✅
 
 - Install React Router DOM:
   ```bash
@@ -28,14 +28,14 @@ Implement client-side routing to create separate views for your products and sho
   );
   ```
 
-### 2. Create Page Components
+### 2. Create Page Components ✅
 
 - Create a `pages` directory in your `src` folder
 - Create the following page components:
   - `ProductsPage.tsx`: Move your product listing logic here
   - `CartPage.tsx`: Create a new component to display cart items
 
-### 3. Set Up Routes
+### 3. Set Up Routes ✅
 
 - In your `App.tsx`, implement routes using React Router:
 
@@ -58,7 +58,7 @@ Implement client-side routing to create separate views for your products and sho
   }
   ```
 
-### 4. Navigation Links
+### 4. Navigation Links ✅
 
 - Update your `Header` component to use `Link` from React Router:
 
@@ -118,7 +118,7 @@ Implement client-side routing to create separate views for your products and sho
   }
   ```
 
-### 6. Wrap Your App with the Context Provider
+### 6. Wrap Your App with the Context Provider ✅
 
 - In `main.tsx`, add the `CartProvider` around your `App`:
 
