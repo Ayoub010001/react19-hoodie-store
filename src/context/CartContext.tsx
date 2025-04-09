@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, ReactNode, useCallback } from "react";
 import { CartItem, Product } from "../types/Product";
 
 // Define the shape of your context
@@ -6,6 +6,7 @@ interface CartContextType {
   cart: CartItem[];
   addToCart: (product: Product) => void;
   userFeedback: string | null;
+  removeFromCart: (product: Product) => void;
 }
 
 // Create the context
@@ -18,7 +19,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const [userFeedback, setUserFeedback] = useState<string | null>(null);
 
 
-  const addToCart = (product: Product) => {
+  const addToCart = useCallback((product: Product) => {
     // Add to cart implementation
     const existingProduct = cart.find(item => item.id === product.id);
     if (!existingProduct) {
@@ -35,6 +36,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
        
       cart.forEach(item => {
          if (item.id === product.id) {
+          console.log(item.quantity);
            setUserFeedback(`Added ${item.quantity} X ${product.name} in cart`);
          }
        })
@@ -44,10 +46,26 @@ export function CartProvider({ children }: { children: ReactNode }) {
        }
        , 2000);
     }
-  };
+  },[cart]);
+
+  const removeFromCart = useCallback((product: Product) => {
+    const existingProduct = cart.find(item => item.id === product.id);
+    if (existingProduct) {
+      if (existingProduct.quantity > 1) {
+        setCart((prevCart: CartItem[]) => prevCart.map(item => item.id === product.id ? { ...item, quantity: item.quantity - 1 } : item));
+        setUserFeedback(`Removed 1 X ${product.name} from cart`);
+      } else {
+        setCart((prevCart: CartItem[]) => prevCart.filter(item => item.id !== product.id));
+        setUserFeedback(`Removed ${product.name} from cart`);
+      }
+      setTimeout(() => {
+        setUserFeedback(null);
+      }, 2000);
+    }
+  }, [cart]);
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, userFeedback }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, userFeedback }}>
       {children}
     </CartContext.Provider>
   );

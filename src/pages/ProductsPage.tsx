@@ -6,7 +6,7 @@ import { useCart } from "../context/CartContext";
 
 function ProductsPage() {
 
-   const { cart, addToCart:handleAddToCart,userFeedback } = useCart();
+   const { cart, addToCart:handleAddToCart, userFeedback  } = useCart();
 
   //  const [cart, setCart] = useState<CartItem[]>([]);
   //  const [userFeedback, setUserFeedback] = useState<string | null>(null);

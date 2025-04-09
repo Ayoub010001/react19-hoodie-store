@@ -75,7 +75,7 @@ Implement client-side routing to create separate views for your products and sho
   }
   ```
 
-### 5. Create a Context for Cart State
+### 5. Create a Context for Cart State ✅
 
 - Create a `context` directory in your `src` folder
 - Create a `CartContext.tsx` file:
@@ -136,7 +136,7 @@ Implement client-side routing to create separate views for your products and sho
   );
   ```
 
-### 7. Use the Context in Components
+### 7. Use the Context in Components ✅
 
 - Update the components to use the context instead of props:
   - In `Header.tsx`, get the cart count from context:
@@ -158,13 +158,13 @@ Implement client-side routing to create separate views for your products and sho
 
 If you finish early or want an extra challenge, try one of these:
 
-### 1. Add a "Remove from Cart" Feature
+### 1. Add a "Remove from Cart" Feature ✅
 
 - Add a `removeFromCart` function to your context
 - Add a "Remove" button next to each cart item
 - Implement the removal logic
 
-### 2. Style Your Cart Page
+### 2. Style Your Cart Page ✅
 
 - Create a visually appealing cart page with Tailwind CSS
 - Add a subtotal calculation at the bottom
@@ -175,7 +175,7 @@ If you finish early or want an extra challenge, try one of these:
 - Add transition animations when navigating between pages
 - Animate the cart badge when items are added
 
-## Testing Your Implementation
+## Testing Your Implementation ✅
 
 - Test your implementation by:
   - Navigating between the home page and cart page
