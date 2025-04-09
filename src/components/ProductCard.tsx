@@ -43,9 +43,9 @@ function ProductCard({ product, onAddToCart, cart }: ProductProps) {
       <div className={`${isProductInCart(product)?"flex justify-end items-center mt-4":" hidden"}`} >
         <button 
         onClick={() => removeFromCart(product)}
-        className="bg-sky-900/30 p-2 rounded-lg text-sky-100 hover:text-red-500 outline-2"
+        className="text-sm font-medium px-2 py-1 outline-2 rounded hover:bg-red-600/50"
         >
-          <span className="font-bold">Remove from cart</span>
+          Remove from cart
         </button>
       </div>
     </div>

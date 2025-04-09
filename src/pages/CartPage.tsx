@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
-import { useState, useEffect } from "react";
 
 function CartPage() {
   const { cart } = useCart();
 
   return (
-    <main className={`container max-w-[1080px] mx-auto px-4 py-8`}>
+    <main className={`container max-w-[1080px] mx-auto px-4 py-8 fade-in`}>
       <div className="flex justify-between items-center bg-sky-900/40 p-4 rounded-lg shadow-md">
         <h1 className=" text-amber-50 text-2xl font-bold">My Cart :</h1>
         <Link to="/" className="text-amber-50 hover:text-sky-500 transition-colors duration-300">
@@ -15,7 +14,7 @@ function CartPage() {
           </button>
         </Link>
       </div>
-      <table className="table-auto md:table-fixed text-center text-amber-50 w-full mt-4">
+      <table className="table-auto md:table-fixed text-center text-amber-50 w-full mt-4 ">
         <thead className="bg-sky-900">
           <tr >
             <th className="border-2 border-sky-100/40">Image</th>

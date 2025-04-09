@@ -170,7 +170,7 @@ If you finish early or want an extra challenge, try one of these:
 - Add a subtotal calculation at the bottom
 - Create empty cart state with a "Continue Shopping" link
 
-### 3. Add Animations
+### 3. Add Animations ✅
 
 - Add transition animations when navigating between pages
 - Animate the cart badge when items are added
