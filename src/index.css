@@ -16,3 +16,19 @@
 .fade-in {
   animation: fadeIn 0.5s ease-in 0s 1 normal;
 }
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(300px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  
+}
+
+.slide-in-right {
+  animation: slideInRight 0.5s ease-in-out 0s 1 normal;
+}

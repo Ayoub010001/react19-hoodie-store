@@ -12,6 +12,7 @@ function CartPage() {
   const dispatch = useAppDispatch();
 
   const handleRemoveFromCart = (id: string) => {
+    console.log(id)
     dispatch(removeFromCart(id));
   };
 

@@ -2,25 +2,23 @@ import useFetch from "../hooks/useFetch";
 import ProductList from "../components/ProductList";
 import { Product } from "../types/Product";
 // import { useCart } from "../context/CartContext";
-import { useAppDispatch } from "../store/hooks";
-import { addToCart } from "../store/cartSlice";
-import { useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { addToCart, selectCartItems } from "../store/cartSlice";
 
 function ProductsPage() {
 
   const dispatch = useAppDispatch();
-  const cart = useSelector((state: any) => state.cart.items);
+  const cart = useAppSelector(selectCartItems)
+
 
   const handleAddToCart = (product: Product) => {
         dispatch(addToCart(product));
   };
 
-  // const { cart, addToCart:handleAddToCart, userFeedback  } = useCart(); 
   const {data:products,isLoading,isError, retryFetch} = useFetch<Product>("http://localhost:3000/products");
     
  return (
     <main className="fade-in mx-auto container bg-gray-900 text-sky-50 min-h-screen">
-    {/* <Header cartCount={countProductsInCart(cart)}/> */}
     {isLoading && <div className="loading-spinner flex flex-col items-center justify-center h-screen"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="animate-spin lucide lucide-loader-circle-icon lucide-loader-circle"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg><p>Loading...</p></div>}
     {isError && <div className="error-message animate-wiggle  flex flex-col items-center justify-center h-screen">
       <div className="bg-red-500/30 rounded-xl p-4 w-[200px] flex-col flex items-center"><p className=" text-red-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="float-left me-2 ucide lucide-ban-icon lucide-ban"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg>{isError}</p>
@@ -32,10 +30,6 @@ function ProductsPage() {
     
     {(!isLoading&&!isError)&&
     <ProductList products={products} onAddToCart={handleAddToCart} cart={cart}/>}
-    
-    {/* {userFeedback && (<div className="fixed bottom-0 left-0 right-0 bg-sky-800/80 text-center p-2">
-      <p className="text-sky-50">{userFeedback}</p>
-    </div>)} */}
   </main>
   )
 }
