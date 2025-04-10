@@ -1,46 +1,22 @@
 import useFetch from "../hooks/useFetch";
 import ProductList from "../components/ProductList";
 import { Product } from "../types/Product";
-import { useCart } from "../context/CartContext";
-
+// import { useCart } from "../context/CartContext";
+import { useAppDispatch } from "../store/hooks";
+import { addToCart } from "../store/cartSlice";
+import { useSelector } from "react-redux";
 
 function ProductsPage() {
 
-   const { cart, addToCart:handleAddToCart, userFeedback  } = useCart();
+  const dispatch = useAppDispatch();
+  const cart = useSelector((state: any) => state.cart.items);
 
-  //  const [cart, setCart] = useState<CartItem[]>([]);
-  //  const [userFeedback, setUserFeedback] = useState<string | null>(null);
-   
-  //  function handleAddToCart(product: Product) {
-  //    const existingProduct = cart.find(item => item.id === product.id);
-  //    if (!existingProduct) {
-  //      setCart((prevCart:CartItem[])=>[...prevCart, {...product,quantity:1}]);
-  //      setUserFeedback(`Added ${product.name} to cart`);
-  //      setTimeout(() => {
-  //        setUserFeedback(null);
-  //      }
-  //      , 2000);
-  //    }else{
-  //      setCart((prevCart:CartItem[])=>prevCart.map(item=>item.id===product.id?{...item,quantity:item.quantity+1}:item));
-       
-  //      cart.forEach(item => {
-  //        if (item.id === product.id) {
-  //          setUserFeedback(`Added ${item.quantity} X ${product.name} in cart`);
-  //        }
-  //      })
-       
-  //      setTimeout(() => {
-  //        setUserFeedback(null);
-  //      }
-  //      , 2000);
-  //    }
-  //  }
-   
-  //  function countProductsInCart(cart: CartItem[]) {
-  //    return cart.reduce((total, item) => total + item.quantity, 0);
-  //  }
- 
-   const {data:products,isLoading,isError, retryFetch} = useFetch<Product>("http://localhost:3000/products");
+  const handleAddToCart = (product: Product) => {
+        dispatch(addToCart(product));
+  };
+
+  // const { cart, addToCart:handleAddToCart, userFeedback  } = useCart(); 
+  const {data:products,isLoading,isError, retryFetch} = useFetch<Product>("http://localhost:3000/products");
     
  return (
     <main className="fade-in mx-auto container bg-gray-900 text-sky-50 min-h-screen">
@@ -57,9 +33,9 @@ function ProductsPage() {
     {(!isLoading&&!isError)&&
     <ProductList products={products} onAddToCart={handleAddToCart} cart={cart}/>}
     
-    {userFeedback && (<div className="fixed bottom-0 left-0 right-0 bg-sky-800/80 text-center p-2">
+    {/* {userFeedback && (<div className="fixed bottom-0 left-0 right-0 bg-sky-800/80 text-center p-2">
       <p className="text-sky-50">{userFeedback}</p>
-    </div>)}
+    </div>)} */}
   </main>
   )
 }
